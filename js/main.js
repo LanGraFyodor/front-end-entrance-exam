@@ -40,7 +40,7 @@ themeBtn.addEventListener('click', function(e) {
     document.body.classList.toggle('dark');
 });
 
-// Глобальный обработчик кликов для эффекта ряби на ВСЕХ элементах
+
 CV.addEventListener('click', function(e) {
     const target = e.target.closest('.photo, .nameBox, .languages, .education, .interests, .contacts, .tools, .experience, .eduCard, .expCard, .interest, .level, .toolsCard > img, [contenteditable="true"]');
     
@@ -56,7 +56,7 @@ document.querySelectorAll('.CV [contenteditable="true"]').forEach(el => {
 
 window.addEventListener('DOMContentLoaded', loadContent);
 
-// --- САМАЯ НАДЕЖНАЯ ФУНКЦИЯ СОЗДАНИЯ PDF ---
+
 function createPDF() {
     const cvElement = document.querySelector('.CV');
 
@@ -72,24 +72,20 @@ function createPDF() {
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
         
-        // Рассчитываем соотношения сторон
         const pageAspectRatio = pageWidth / pageHeight;
         const canvasAspectRatio = canvasWidth / canvasHeight;
 
         let renderWidth, renderHeight, x, y;
 
-        // Определяем, как масштабировать, чтобы все поместилось
         if (canvasAspectRatio > pageAspectRatio) {
-            // Если резюме "шире" страницы, подгоняем по ширине
             renderWidth = pageWidth;
             renderHeight = pageWidth / canvasAspectRatio;
-            y = (pageHeight - renderHeight) / 2; // Центрируем по вертикали
+            y = (pageHeight - renderHeight) / 2; 
             x = 0;
         } else {
-            // Если резюме "выше" страницы, подгоняем по высоте
             renderHeight = pageHeight;
             renderWidth = pageHeight * canvasAspectRatio;
-            x = (pageWidth - renderWidth) / 2; // Центрируем по горизонтали
+            x = (pageWidth - renderWidth) / 2;
             y = 0;
         }
 
